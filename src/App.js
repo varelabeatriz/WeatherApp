@@ -40,12 +40,11 @@ function App() {
     )
   }
   else {
-    console.log(weather);
     let icon = weather['list'][0]['weather'][0]['icon']
 
     return (
       <Fragment>
-        <h3>Clima nas suas Coordenadas ({weather['list'][0]['weather'][0]['description']})</h3>
+        <h3>Clima nas suas Coordenadas ({weather['list'][0]['weather'][0]['description']}) na data de {weather['list'][0]['dt_txt']}</h3>
         <hr />
         <ul>
           <li>Temperatura atual: {weather['list'][0]['main']['temp']}°</li>
@@ -56,7 +55,7 @@ function App() {
           <img src= {"https://openweathermap.org/img/w/" +icon+ ".png"} style={{width: 80}}></img>
           {/* <li>Umidade: {weather['daily'][1]}%</li> */}
         </ul>
-        <h3>Clima nas suas Coordenadas ({weather['list'][0]['weather'][0]['description']})</h3>
+        <h3>Clima nas suas Coordenadas ({weather['list'][0]['weather'][0]['description']}) na data de {weather['list'][1]['dt_txt']}</h3>
         <hr />
         <ul>
           <li>Temperatura atual: {weather['list'][1]['main']['temp']}°</li>
