@@ -6,7 +6,7 @@ function App() {
   const [weather, setWeather] = useState(false);
 
   let getWeather = async (lat, long) => {
-    let res = await axios.get("http://api.openweathermap.org/data/2.5/weather", {
+    let res = await axios.get("http://api.openweathermap.org/data/2.5/forecast", {
       params: {
         lat: lat,
         lon: long,
@@ -26,13 +26,13 @@ function App() {
     })
   }, []);
 
-  if (location == false) {
+  if (!location) {
     return (
       <Fragment>
         Habilite a localização no browser!
       </Fragment>
     )
-  } else if (weather == false) {
+  } else if (!weather) {
     return (
       <Fragment>
         Carregando...
@@ -40,19 +40,29 @@ function App() {
     )
   }
   else {
-
-    let icon = weather['weather'][0]['icon']
+    let icon = weather['list'][0]['weather'][0]['icon']
 
     return (
       <Fragment>
-        <h3>Clima nas suas Coordenadas ({weather['weather'][0]['description']})</h3>
+        <h3>Clima nas suas Coordenadas ({weather['list'][0]['weather'][0]['description']}) na data de {weather['list'][0]['dt_txt']}</h3>
         <hr />
         <ul>
-          <li>Temperatura atual: {weather['main']['temp']}°</li>
-          <li>Temperatura máxima: {weather['main']['temp_max']}°</li>
-          <li>Temperatura mínima: {weather['main']['temp_min']}°</li>
-          <li>Pressão: {weather['main']['pressure']}°</li>
-          <li>Umidade: {weather['main']['humidity']}%</li>
+          <li>Temperatura atual: {weather['list'][0]['main']['temp']}°</li>
+          <li>Temperatura máxima: {weather['list'][0]['main']['temp_max']}°</li>
+          <li>Temperatura mínima: {weather['list'][0]['main']['temp_min']}°</li>
+          <li>Pressão: {weather['list'][0]['main']['pressure']}°</li>
+          <li>Umidade: {weather['list'][0]['main']['humidity']}%</li>
+          <img src= {"https://openweathermap.org/img/w/" +icon+ ".png"} style={{width: 80}}></img>
+          {/* <li>Umidade: {weather['daily'][1]}%</li> */}
+        </ul>
+        <h3>Clima nas suas Coordenadas ({weather['list'][0]['weather'][0]['description']}) na data de {weather['list'][1]['dt_txt']}</h3>
+        <hr />
+        <ul>
+          <li>Temperatura atual: {weather['list'][1]['main']['temp']}°</li>
+          <li>Temperatura máxima: {weather['list'][1]['main']['temp_max']}°</li>
+          <li>Temperatura mínima: {weather['list'][1]['main']['temp_min']}°</li>
+          <li>Pressão: {weather['list'][1]['main']['pressure']}°</li>
+          <li>Umidade: {weather['list'][1]['main']['humidity']}%</li>
           <img src= {"https://openweathermap.org/img/w/" +icon+ ".png"} style={{width: 80}}></img>
           {/* <li>Umidade: {weather['daily'][1]}%</li> */}
         </ul>
