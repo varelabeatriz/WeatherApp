@@ -12,7 +12,7 @@ function Forecast() {
                 lat: lat,
                 lon: long,
                 appid: process.env.REACT_APP_OPEN_WHEATHER_KEY,
-                // lang: 'pt',
+                lang: 'pt',
                 units: 'metric'
             }
         });
@@ -41,6 +41,21 @@ function Forecast() {
         )
     }
     else {
+
+        function arredonda(n) {
+            return n.toFixed(0);
+        }
+
+        let tempAtual = arredonda(weather['list'][0]['main']['temp']);
+        let tempMax = arredonda(weather['list'][0]['main']['temp_max']);
+        let tempMin = arredonda(weather['list'][0]['main']['temp_min']);
+        let temp3 = arredonda(weather['list'][1]['main']['temp']);
+        let temp6 = arredonda(weather['list'][2]['main']['temp_min']);
+        let temp9 = arredonda(weather['list'][3]['main']['temp_min']);
+        let temp12 = arredonda(weather['list'][4]['main']['temp_min']);
+        let temp15 = arredonda(weather['list'][5]['main']['temp_min']);
+        let temp18 = arredonda(weather['list'][6]['main']['temp_min']);
+
         let icon = weather['list'][0]['weather'][0]['icon']
         let icon1 = weather['list'][1]['weather'][0]['icon']
         let icon2 = weather['list'][2]['weather'][0]['icon']
@@ -73,11 +88,11 @@ function Forecast() {
 
                 <div className="header">
                     <p>{weather['city']['name']}</p>
-                    <p className="temp">{weather['list'][0]['main']['temp']}°</p>
+                    <p className="temp">{tempAtual}°</p>
                     <p>{weather['list'][0]['weather'][0]['description']}</p>
                     <div className="maxAndMin">
-                        <p>Máx: {weather['list'][0]['main']['temp_max']}°</p>
-                        <p>Mín: {weather['list'][0]['main']['temp_min']}°</p>
+                        <p>Máx: {tempMax}°</p>
+                        <p>Mín: {tempMin}°</p>
                     </div>
                 </div>
 
@@ -86,43 +101,43 @@ function Forecast() {
                     <div className="hourlyForecast">
                         <p>Agora</p>
                         <img src={"https://openweathermap.org/img/w/" + icon + ".png"}></img>
-                        <p>{weather['list'][0]['main']['temp']}°</p>
+                        <p>{tempAtual}°</p>
                     </div>
 
                     <div className="hourlyForecast">
                         <p>{hour1}</p>
                         <img src={"https://openweathermap.org/img/w/" + icon1 + ".png"}></img>
-                        <p>{weather['list'][1]['main']['temp']}°</p>
+                        <p>{temp3}°</p>
                     </div>
 
                     <div className="hourlyForecast">
                         <p>{hour2}</p>
                         <img src={"https://openweathermap.org/img/w/" + icon2 + ".png"}></img>
-                        <p>{weather['list'][2]['main']['temp']}°</p>
+                        <p>{temp6}°</p>
                     </div>
 
                     <div className="hourlyForecast">
                         <p>{hour3}</p>
                         <img src={"https://openweathermap.org/img/w/" + icon3 + ".png"}></img>
-                        <p>{weather['list'][3]['main']['temp']}°</p>
+                        <p>{temp9}°</p>
                     </div>
 
                     <div className="hourlyForecast">
                         <p>{hour4}</p>
                         <img src={"https://openweathermap.org/img/w/" + icon4 + ".png"}></img>
-                        <p>{weather['list'][4]['main']['temp']}°</p>
+                        <p>{temp12}°</p>
                     </div>
 
                     <div className="hourlyForecast">
                         <p>{hour5}</p>
                         <img src={"https://openweathermap.org/img/w/" + icon5 + ".png"}></img>
-                        <p>{weather['list'][5]['main']['temp']}°</p>
+                        <p>{temp15}°</p>
                     </div>
 
                     <div className="hourlyForecast">
                         <p>{hour6}</p>
                         <img src={"https://openweathermap.org/img/w/" + icon6 + ".png"}></img>
-                        <p>{weather['list'][6]['main']['temp']}°</p>
+                        <p>{temp18}°</p>
                     </div>
 
                 </div>
