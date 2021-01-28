@@ -10,6 +10,11 @@ div.container {
     z-index: 3;
 }
 
+.container:before {
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+    filter: blur(10px);
+}
+
 div.header {
     background-color: #ffffff;
     display: flex;
@@ -29,6 +34,7 @@ div.header .temp{
 div.maxAndMin {
     display: flex;
     font-size: 22px;
+    margin-top: 10px;
 }
 
 div.forecastRow {
@@ -37,4 +43,23 @@ div.forecastRow {
 
 div.forecastRow img{
     width: 80px;
+}
+
+div.forecastRow .hourlyForecast{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.data{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px;
+}
+
+.data p{
+    margin: 10px;
 }

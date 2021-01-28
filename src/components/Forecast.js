@@ -46,6 +46,26 @@ function Forecast() {
         let icon2 = weather['list'][2]['weather'][0]['icon']
         let icon3 = weather['list'][3]['weather'][0]['icon']
         let icon4 = weather['list'][4]['weather'][0]['icon']
+        let icon5 = weather['list'][5]['weather'][0]['icon']
+        let icon6 = weather['list'][6]['weather'][0]['icon']
+
+        let event1 = new Date(weather['list'][1]['dt_txt']);
+        let hour1 = (event1.toLocaleTimeString([], { hour: '2-digit' }));
+
+        let event2 = new Date(weather['list'][2]['dt_txt']);
+        let hour2 = (event2.toLocaleTimeString([], { hour: '2-digit' }));
+
+        let event3 = new Date(weather['list'][3]['dt_txt']);
+        let hour3 = (event3.toLocaleTimeString([], { hour: '2-digit' }));
+
+        let event4 = new Date(weather['list'][4]['dt_txt']);
+        let hour4 = (event4.toLocaleTimeString([], { hour: '2-digit' }));
+
+        let event5 = new Date(weather['list'][5]['dt_txt']);
+        let hour5 = (event5.toLocaleTimeString([], { hour: '2-digit' }));
+
+        let event6 = new Date(weather['list'][6]['dt_txt']);
+        let hour6 = (event6.toLocaleTimeString([], { hour: '2-digit' }));
 
         return (
 
@@ -63,42 +83,53 @@ function Forecast() {
 
                 <div className="forecastRow">
 
-                    <div className="hourlyForecastS">
+                    <div className="hourlyForecast">
                         <p>Agora</p>
                         <img src={"https://openweathermap.org/img/w/" + icon + ".png"}></img>
                         <p>{weather['list'][0]['main']['temp']}°</p>
                     </div>
 
-                    <div className="hourlyForecastS">
-                        <p>{weather['list'][1]['dt_txt']}</p>
+                    <div className="hourlyForecast">
+                        <p>{hour1}</p>
                         <img src={"https://openweathermap.org/img/w/" + icon1 + ".png"}></img>
                         <p>{weather['list'][1]['main']['temp']}°</p>
                     </div>
 
-                    <div className="hourlyForecastS">
-                        <p>{weather['list'][2]['dt_txt']}</p>
+                    <div className="hourlyForecast">
+                        <p>{hour2}</p>
                         <img src={"https://openweathermap.org/img/w/" + icon2 + ".png"}></img>
                         <p>{weather['list'][2]['main']['temp']}°</p>
                     </div>
 
-                    <div className="hourlyForecastS">
-                        <p>{weather['list'][3]['dt_txt']}</p>
+                    <div className="hourlyForecast">
+                        <p>{hour3}</p>
                         <img src={"https://openweathermap.org/img/w/" + icon3 + ".png"}></img>
                         <p>{weather['list'][3]['main']['temp']}°</p>
                     </div>
 
-                    <div className="hourlyForecastS">
-                        <p>{weather['list'][4]['dt_txt']}</p>
+                    <div className="hourlyForecast">
+                        <p>{hour4}</p>
                         <img src={"https://openweathermap.org/img/w/" + icon4 + ".png"}></img>
                         <p>{weather['list'][4]['main']['temp']}°</p>
                     </div>
 
-                </div>
-                
-               <br></br>
+                    <div className="hourlyForecast">
+                        <p>{hour5}</p>
+                        <img src={"https://openweathermap.org/img/w/" + icon5 + ".png"}></img>
+                        <p>{weather['list'][5]['main']['temp']}°</p>
+                    </div>
 
-                <p>Pressão: {weather['list'][0]['main']['pressure']}°</p>
-                <p>Umidade: {weather['list'][0]['main']['humidity']}%</p>
+                    <div className="hourlyForecast">
+                        <p>{hour6}</p>
+                        <img src={"https://openweathermap.org/img/w/" + icon6 + ".png"}></img>
+                        <p>{weather['list'][6]['main']['temp']}°</p>
+                    </div>
+
+                </div>
+                <div className="data">
+                    <p>Pressão: {weather['list'][0]['main']['pressure']} hPa</p>
+                    <p>Umidade: {weather['list'][0]['main']['humidity']}%</p>
+                </div>
 
             </div>
         );
