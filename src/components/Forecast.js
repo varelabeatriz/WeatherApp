@@ -42,6 +42,29 @@ function Forecast() {
     }
     else {
 
+        Date.prototype.addHours= function(h){
+            this.setHours(this.getHours()+h);
+            return this;
+        }
+
+        let date1 = new Date().addHours(3);
+        let time1 = date1.toLocaleTimeString([], { hour: '2-digit' });
+
+        let date2 = new Date().addHours(6);
+        let time2 = date2.toLocaleTimeString([], { hour: '2-digit' });
+
+        let date3 = new Date().addHours(9);
+        let time3 = date3.toLocaleTimeString([], { hour: '2-digit' });
+
+        let date4 = new Date().addHours(12);
+        let time4 = date4.toLocaleTimeString([], { hour: '2-digit' });
+
+        let date5 = new Date().addHours(15);
+        let time5 = date5.toLocaleTimeString([], { hour: '2-digit' });
+
+        let date6 = new Date().addHours(18);
+        let time6 = date6.toLocaleTimeString([], { hour: '2-digit' });
+
         function arredonda(n) {
             return n.toFixed(0);
         }
@@ -63,24 +86,6 @@ function Forecast() {
         let icon4 = weather['list'][4]['weather'][0]['icon']
         let icon5 = weather['list'][5]['weather'][0]['icon']
         let icon6 = weather['list'][6]['weather'][0]['icon']
-
-        let event1 = new Date(weather['list'][1]['dt_txt']);
-        let hour1 = (event1.toLocaleTimeString([], { hour: '2-digit' }));
-
-        let event2 = new Date(weather['list'][2]['dt_txt']);
-        let hour2 = (event2.toLocaleTimeString([], { hour: '2-digit' }));
-
-        let event3 = new Date(weather['list'][3]['dt_txt']);
-        let hour3 = (event3.toLocaleTimeString([], { hour: '2-digit' }));
-
-        let event4 = new Date(weather['list'][4]['dt_txt']);
-        let hour4 = (event4.toLocaleTimeString([], { hour: '2-digit' }));
-
-        let event5 = new Date(weather['list'][5]['dt_txt']);
-        let hour5 = (event5.toLocaleTimeString([], { hour: '2-digit' }));
-
-        let event6 = new Date(weather['list'][6]['dt_txt']);
-        let hour6 = (event6.toLocaleTimeString([], { hour: '2-digit' }));
 
         return (
 
@@ -105,37 +110,37 @@ function Forecast() {
                     </div>
 
                     <div className="hourlyForecast">
-                        <p>{hour1}</p>
+                        <p>{time1}</p>
                         <img src={"https://openweathermap.org/img/w/" + icon1 + ".png"}></img>
                         <p>{temp3}°</p>
                     </div>
 
                     <div className="hourlyForecast">
-                        <p>{hour2}</p>
+                        <p>{time2}</p>
                         <img src={"https://openweathermap.org/img/w/" + icon2 + ".png"}></img>
                         <p>{temp6}°</p>
                     </div>
 
                     <div className="hourlyForecast">
-                        <p>{hour3}</p>
+                        <p>{time3}</p>
                         <img src={"https://openweathermap.org/img/w/" + icon3 + ".png"}></img>
                         <p>{temp9}°</p>
                     </div>
 
                     <div className="hourlyForecast">
-                        <p>{hour4}</p>
+                        <p>{time4}</p>
                         <img src={"https://openweathermap.org/img/w/" + icon4 + ".png"}></img>
                         <p>{temp12}°</p>
                     </div>
 
                     <div className="hourlyForecast">
-                        <p>{hour5}</p>
+                        <p>{time5}</p>
                         <img src={"https://openweathermap.org/img/w/" + icon5 + ".png"}></img>
                         <p>{temp15}°</p>
                     </div>
 
                     <div className="hourlyForecast">
-                        <p>{hour6}</p>
+                        <p>{time6}</p>
                         <img src={"https://openweathermap.org/img/w/" + icon6 + ".png"}></img>
                         <p>{temp18}°</p>
                     </div>
