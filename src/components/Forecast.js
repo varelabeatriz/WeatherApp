@@ -11,7 +11,7 @@ function Forecast() {
             params: {
                 lat: lat,
                 lon: long,
-                appid: '02c5b83f14d5c2e97a63f68323a44bc7',
+                appid: process.env.REACT_APP_OPEN_WHEATHER_KEY,
                 lang: 'pt',
                 units: 'metric'
             }
