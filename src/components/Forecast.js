@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Fragment, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './Forecast.css'
 
 function Forecast() {
@@ -17,7 +17,7 @@ function Forecast() {
             }
         });
         setWeather(res.data);
-        console.log(res.data);
+
     }
 
     useEffect(() => {
